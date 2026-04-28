@@ -241,49 +241,9 @@ const products=[
   }
 ]
 
-
-console.log(products)
-
-products.forEach(
-    (product)=>console.log(product.title)
-)
-
-console.log("****")
-for(let product of products)
-    console.log(product.title)
-//store all the titles into another array
-
-//products? 20 --> titles ? 20
-const productTitles=products.map(
-    (product)=>product.title
-)
-console.log(productTitles)
-
-//display titles of all products of jewerlry
-
-//products 20 --> category=jewelery =4/5
-
-const jeweleryProductTitles=products.filter(
-    (product)=>product.category==="jewelery"
-)
-
-console.log(jeweleryProductTitles)
-
-const productCategories=products.map(
-    (product)=>product.category
-)
-
-console.log(productCategories)
-
-//list  allows duplicates 
-//set   does not allow duplicates
-
-const uniqueCategories=new Set(productCategories)
-
-console.log(uniqueCategories)
-
-console.log(typeof uniqueCategories)
-
-//spread operator
-const allCategories=[...uniqueCategories,'All']  //it will convert the array into individual elements
-console.log(allCategories)
+const bat="Virat"
+const bowl="Bumrah"
+const ar="Hardik"
+const wk="MSD"
+export {bat,bowl,ar,wk} //named export with {} multiple
+export default products //default export without {} single
