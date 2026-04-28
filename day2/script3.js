@@ -42,35 +42,32 @@ rootDiv.innerHTML=prodTitle
 // console.log(allCategories)
 
 
-const categories=[...new Set(products.map(
-    (product)=>product.category
-)),'All']
 
-console.log(categories)
-
-let menus=""
-categories.forEach(
-    (cat)=>menus+=`<li class="menuitems">${cat}</li>`
-)
-
-function filterByCategory(value)
-{
-    console.log(value)
-    const filteredProducts=products.filter(
-        (prod)=>prod.category===value
-    )
-    prodTitle1=""
-    filteredProducts.forEach(
-    (ptitle)=>{
-        prodTitle1+=`<h1>${ptitle}</h1>`
-    }
-)
-     rootDiv.innerHTML=prodTitle1
+const categories = [...new Set(products.map(p => p.category)), 'All'];
+let menus = "";
+categories.forEach(cat => {
+  menus += `<li class="menuitems">${cat}</li>`;
+});
+const olElement = document.querySelector(".navbar");
+olElement.innerHTML = menus;
+const menuItems = document.querySelectorAll('.menuitems');
+menuItems.forEach(item => {
+item.addEventListener("click", () => {
+filterByCategory(item.textContent);
+ });
+});
+function filterByCategory(category) {
+let filteredProducts;
+ if (category === "All") {
+filteredProducts = products;
+} else {
+filteredProducts = products.filter(
+ prod => prod.category === category
+ );
 }
-const menuItems=document.querySelectorAll('.menuitems')
-Array.from(menuItems).forEach(
-    (item)=>item.addEventListener("click",()=>filterByCategory(item))
-)
-const olElement=document.querySelector(".navbar")
-olElement.innerHTML=menus
-
+let prodTitle1 = "";
+filteredProducts.forEach(p => {
+ prodTitle1 += `<h1>${p.title}</h1>`;
+});
+rootDiv.innerHTML = prodTitle1;
+}
