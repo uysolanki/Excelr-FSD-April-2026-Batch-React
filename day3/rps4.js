@@ -8,13 +8,14 @@
         const paperButton=document.querySelector("#paper-button")
         const scissorsButton=document.querySelector("#scissors-button")
         const refreshButton=document.querySelector("#refresh-button")
+        const autoplayButton=document.querySelector("#autoplay-button")
 
 
         rockButton.addEventListener('click', ()=>{playGame('Rock')})
         paperButton.addEventListener('click', ()=>{playGame('Paper')})
         scissorsButton.addEventListener('click', ()=>{playGame('Scissors')})
         refreshButton.addEventListener('click',resetScore )
-        
+        autoplayButton.addEventListener('click', autoplayMode)
         let win=0,lose=0,tie=0;
         let score= JSON.parse(localStorage.getItem("myrpsscores")) ||
         {win,lose,tie}
@@ -68,6 +69,7 @@
        
 
         movesDiv.innerHTML=`Player Move ${playerMove} Computer Move ${computerMove}`
+        movesDiv.innerHTML=`Player Move  <img class="small-move-image" src="./images/${playerMove}-emoji.png" /> Computer Move <img class="small-move-image" src="./images/${computerMove}-emoji.png" />`
         resultsDiv.innerHTML=`Result ${result}`
         localStorage.setItem('myrpsscores', JSON.stringify(score))
         displayScoreboard();
@@ -98,4 +100,25 @@
                 score={win:0,lose:0,tie:0}
                 displayScoreboard();
             }
+        }
+
+        let interval
+        let flag=false
+        function autoplayMode()
+        {
+                if(!flag)
+                {
+                    flag=true
+                    interval=setInterval(
+                        ()=>{
+                           let computerGeneratedPlayerMove=generateComputerMove() 
+                           playGame(computerGeneratedPlayerMove)
+                        },1000
+                    )
+                }
+                else
+                {
+                    clearInterval(interval)
+                    flag=false
+                }
         }
