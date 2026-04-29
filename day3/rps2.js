@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+        //short circuit
+        // || it will consider the first true value
+        // if all are false then consider the last value
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script defer src="./rps2.js"></script> 
-    <!-- <script>
+        // && it will consider the first false value
+        // if all are true then consider the first true
+
         let win=0,lose=0,tie=0;
+        let score= JSON.parse(localStorage.getItem("myrpsscores")) ||
+        {win,lose,tie}
         const movesDiv=document.getElementById("moves")
         const resultsDiv=document.querySelector("#results")
         const scoresDiv=document.querySelector("#scores")
@@ -49,20 +49,24 @@
              console.log(`Result ${result}`)
              switch(result)
              {
-                case "Win": win++;break;
-                case "Lose": lose++;break;
-                case "Tie": tie++;break;
+                case "Win": score.win++;break;
+                case "Lose": score.lose++;break;
+                case "Tie": score.tie++;break;
              }
 
-             console.log(`Scoreboard Wins : ${win} Lose : ${lose}  Tie : ${tie}`)
+             console.log(`Scoreboard Wins : ${score.win} Lose : ${score.lose}  Tie : ${score.tie}`)
        
 
         movesDiv.innerHTML=`Player Move ${playerMove} Computer Move ${computerMove}`
         resultsDiv.innerHTML=`Result ${result}`
-        scoresDiv.innerHTML=`Scoreboard Wins : ${win} Lose : ${lose}  Tie : ${tie}`
+        localStorage.setItem('myrpsscores', JSON.stringify(score))
+        displayScoreboard();
     }
 
-
+        function displayScoreboard()
+        {
+            scoresDiv.innerHTML=`Scoreboard Wins : ${score.win} Lose : ${score.lose}  Tie : ${score.tie}`
+        }
         function generateComputerMove()
         {
             const random=Math.random()
@@ -74,18 +78,11 @@
             else
             return "Scissors"
         }
-    </script> -->
-</head>
 
-<body>
-    <button onclick="playGame('Rock')">Rock</button>
-    <button onclick="playGame('Paper')">Paper</button>
-    <button onclick="playGame('Scissors')">Scissors</button>
-    <button onclick="resetScore()">Refresh</button>
 
-    <p id="moves"></p>
-    <p id="results"></p>
-    <p id="scores"></p>
-</body>
-
-</html>
+        function resetScore()
+        {
+            localStorage.removeItem("myrpsscores")
+            score={win:0,lose:0,tie:0}
+            displayScoreboard();
+        }

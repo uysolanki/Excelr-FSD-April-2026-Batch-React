@@ -1,4 +1,4 @@
-function playGame(playMove)
+function playGame(playerMove)
 {
-    console.log(playMove)
+    console.log(playerMove)
 }
