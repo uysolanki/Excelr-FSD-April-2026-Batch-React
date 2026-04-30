@@ -1,15 +1,11 @@
 import React from 'react'
 import './App.css'
+import Navbar from './components/Navbar'
 const App = () => {
   //pure JS code
   return (
     <div>
-        <ol className="menubar">
-          <li>File</li>
-          <li>Edit</li>
-          <li>Selection</li>
-          <li>View</li>
-        </ol>
+       <Navbar />
     </div>
   )
 }
