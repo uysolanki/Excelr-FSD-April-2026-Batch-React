@@ -12,6 +12,10 @@ const Counter = () => {
             alert('Limit Reached')
     }
 
+    function incrementBy2()
+    {
+         setCounter(counter+=2)
+    }
     return (
         <div>
             <button onClick={increment}>My Increment</button>
@@ -21,7 +25,7 @@ const Counter = () => {
                 else
                     alert('Limit Reached')
             }}>My Decrement</button>
-            <button>My Increment by 2</button>
+            <button onClick={incrementBy2}>My Increment by 2</button>
             <button>My Decrement by 2</button>
             <span>{counter}</span>
         </div>
