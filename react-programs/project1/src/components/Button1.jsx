@@ -11,8 +11,8 @@ const Button1 = ({mycolor,mytext="Apple",handleClick}) => {
       rs:5000
     }
 
-     const {pname,mp:matches}=player  //object destructing
-     console.log(`My Fav player is ${pname} has played ${matches} matches`)
+    const {pname,mp:matches}=player  //object destructing
+    console.log(`My Fav player is ${pname} has played ${matches} matches`)
     const cars=["Audi","BMW","Merc"]
 
     const [a,b,c]=cars  //Array destructuring

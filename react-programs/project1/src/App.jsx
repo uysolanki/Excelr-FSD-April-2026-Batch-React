@@ -7,11 +7,12 @@ import Menubar2 from './components/Menubar2'
 import Counter from './components/Counter'
 import Counter2 from './components/Counter2'
 import Counter3 from './components/Counter3'
+import LandingPage from './components/LandingPage'
 const App = () => {
   //pure JS code
   return (
     <div>
-       <Counter3 />
+       <LandingPage />
     </div>
   )
 }
