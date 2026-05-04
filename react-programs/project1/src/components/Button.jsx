@@ -4,7 +4,10 @@ import './Button.css'
 const Button = (props) => {
     const buttonStyles={backgroundColor:props.mycolor}
   return (
-    <button style={buttonStyles} onClick={props.handleClick} >{props.mytext}</button>
+    <>
+    {/* <button style={buttonStyles} onClick={props.handleClick} >{props.mytext}</button> */}
+    <button style={{backgroundColor:props.mycolor}} onClick={props.handleClick} >{props.mytext}</button> 
+    </>
   )
 }
 

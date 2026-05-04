@@ -1,0 +1,30 @@
+button{
+    background-color: green;
+            font-size: 24px;
+            color:white;
+            border: none;
+            margin-top: 20px;
+            margin-left: 20px;
+            padding: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-family: 'Arial';
+            font-weight: bolder;
+            letter-spacing: 2px;
+
+}
+.red{
+    background-color: red;
+}
+
+.blue{
+background-color: blue;
+}
+
+.green{
+background-color: green;
+}
+
+.yellow{
+    background-color: yellow;
+}
