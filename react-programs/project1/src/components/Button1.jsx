@@ -27,6 +27,11 @@ const Button1 = ({mycolor,mytext="Apple",handleClick}) => {
   )
 }
 
+Button1.propType={
+  mycolor:propType.string,
+  mytext:propType.string
+}
+
 export default Button1
 
 //Mahendra Singh Dhoni
