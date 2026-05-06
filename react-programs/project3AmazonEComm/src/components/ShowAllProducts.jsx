@@ -5,10 +5,10 @@ import products from '../data/allproducts'
 const ShowAllProducts = () => {
     console.log(products)
     return (
-        <>
+        <><div className='products-grid'>
             {products.map(
-                (product) => {
-                    return <div className="card" style={{'width':'18rem'}}>
+                (product, index) => {
+                    return <div key={index} className="card" style={{'width':'18rem'}}>
                         <img className="card-img-top" src={product.image} alt="Card image cap" />
                         <div className="card-body">
                             <h5 className="card-title">{product.title}</h5>
@@ -19,6 +19,7 @@ const ShowAllProducts = () => {
                     </div>
                 }
             )}
+        </div>
         </>
     )
 }
