@@ -5,11 +5,11 @@
 }
 
 .left-section{
-    background-color: lightblue;
+    /* background-color: lightblue; */
     flex: 1;
 }
 
 .right-section{
-   background-color: lightpink;
+   /* background-color: lightpink; */
    flex: 1;
 }

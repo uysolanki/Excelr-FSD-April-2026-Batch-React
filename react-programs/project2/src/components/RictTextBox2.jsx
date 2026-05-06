@@ -3,6 +3,8 @@ import './RictTextBox.css'
 import { CgFormatUppercase } from "react-icons/cg";
 import { RxLetterCaseLowercase } from "react-icons/rx";
 import { GrClearOption } from "react-icons/gr";
+import { FaCopy } from "react-icons/fa";
+import Button from './Button';
 
 const RictTextBox2 = () => {
 
@@ -24,6 +26,11 @@ const RictTextBox2 = () => {
         setText("")
         setPreviewText("")
     }
+
+    function copyText()
+    {
+        navigator.clipboard.writeText(text)
+    }
   return (
     <div className="parent-container">
         <div className='left-section'>
@@ -36,6 +43,8 @@ const RictTextBox2 = () => {
                 <Button handleClick={convertToUpper} text="Upper Case" icon={<CgFormatUppercase />}/>
                 <Button handleClick={()=>setPreviewText(text.toLowerCase())} text="Lower Case" icon={<RxLetterCaseLowercase />}/>
                 <Button handleClick={clearData} text="Clear" icon={<GrClearOption />}/>
+                {/* <Button handleClick={copyText} text="Copy" icon={<FaCopy />}/> */}
+                <Button handleClick={()=>navigator.clipboard.writeText(text)} text="Copy" icon={<FaCopy />}/>
             </div>
             <div>
                 <p>Character Count {text?<span>{text.length}</span>:<span>0</span>}</p>
