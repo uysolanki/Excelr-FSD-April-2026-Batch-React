@@ -5,6 +5,9 @@ import './ShowAllProducts2.css'
 import Product from './Product';
 import FilterBar from './FilterBar';
 import { useState } from 'react';
+import FilterByCategoryBar from './FilterByCategoryBar';
+import FilterByPrice from './FilterByPrice';
+import FilterByPrice2 from './FilterByPrice2';
 
 const ShowAllProducts3 = () => {
 
@@ -40,9 +43,30 @@ const ShowAllProducts3 = () => {
         setProducts(filteredProducts)
     }
     }
+
+    function filterByPrice(basePrice)
+    {
+        const filteredProducts=buproducts.filter(
+            (prod)=>prod.price<=basePrice
+        )
+
+        setProducts(filteredProducts)
+    }
+
+    function filterByPriceNew(event)
+    {
+        console.log(event.target.value)
+        const filteredProducts=buproducts.filter(
+            (prod)=>prod.price<=event.target.value
+        )
+
+        setProducts(filteredProducts)
+    }
     return (
         <>
-        <FilterBar categories={allCategories} handleClick={filterByCategory}/>
+        <FilterByCategoryBar categories={allCategories} handleClick={filterByCategory}/>
+        {/* <FilterByPrice handleClick={filterByPrice}/> */}
+        <FilterByPrice2 handleChange={filterByPriceNew}/>
         <div className="container py-5">
             <div className="row g-4">
                 {products.map((product, index) => {
