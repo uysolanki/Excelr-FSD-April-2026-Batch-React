@@ -30,7 +30,7 @@ const SingleProduct = () => {
    }
   return (
     <>
-    {product?<Product product={product} /> : <h1>Loading..</h1>}
+    {product?<Product product={product} /> : <h1>Fetching Product Info..</h1>}
     </>
   )
 }
