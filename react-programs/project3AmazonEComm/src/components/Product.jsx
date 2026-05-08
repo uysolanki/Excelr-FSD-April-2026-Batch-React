@@ -1,10 +1,10 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 const Product = ({product}) => {
   return (
      <div className="col-12 col-sm-6 col-md-4 col-lg-3">
                             <div className="card h-100 shadow-sm border-0 product-card">
-                                
+                                <Link to={`/single/${product.id}`}>
                                 <div className="image-wrapper">
                                     <img 
                                         src={product.image} 
@@ -12,7 +12,7 @@ const Product = ({product}) => {
                                         alt={product.title} 
                                     />
                                 </div>
-
+                                </Link>
                                 <div className="card-body d-flex flex-column">
                                     <h6 className="card-title fw-bold text-truncate">
                                         {product.title}
