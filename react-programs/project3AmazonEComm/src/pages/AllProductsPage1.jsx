@@ -9,6 +9,7 @@ import FilterByPrice2 from '../components/FilterByPrice2';
 import SearchBar from '../components/SearchBar';
 import { useEffect } from 'react';
 import axios from 'axios'
+import Breadcrumb from '../components/Breadcrumb';
 
 const AllProductsPage1 = () => {
 
