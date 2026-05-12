@@ -11,6 +11,7 @@ import LandingPage from './pages/LandingPage'
 import NavBar1 from './components/NavBar1'
 import SingleProduct from './pages/SingleProduct'
 import AllProductsPage2 from './pages/AllProductsPage2'
+import SingleProduct2 from './pages/SingleProduct2'
 const App = () => {
   return (
   <Router>
@@ -19,7 +20,7 @@ const App = () => {
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/shop" element={<AllProductsPage2 />} />
                 <Route path="/rich" element={<RictTextBox2 />} />
-                <Route path="/single/:prodid" element={<SingleProduct />} />
+                <Route path="/single/:prodid" element={<SingleProduct2 />} />
           </Routes>
   </Router>
   )
