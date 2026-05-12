@@ -6,6 +6,8 @@ import UserContextProvider from './contexts/UserContextProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <UserContextProvider>
+   
     <App />
+   
   </UserContextProvider>,
 )
