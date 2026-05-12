@@ -5,7 +5,37 @@ import ProductContext from './ProductContext';
 function ProductContextProvider  ({children}) {
 
     const[products,setProducts]=useState()
+    const[cartitems,setCartitems]=useState(getDefaultCartItems())
 
+
+    function getDefaultCartItems()
+    {
+        return JSON.parse(localStorage.getItem("amazoncart")) || {}
+    }
+
+    function addToCart(prodId)  //prodId=17
+    {
+        setCartitems(prev=>({...prev, [prodId]:(prev[prodId] || 0)+1}))                  // prev = {}
+    }
+
+    function removeFromCart(prodId)
+    {
+        setCartitems(
+            prev=>{
+                const newCart={...prev}
+                if(newCart[prodId] > 0)
+                    newCart[prodId]-=1
+
+                return newCart
+            }
+        )
+    }
+
+    useEffect(
+        ()=>{
+                localStorage.setItem("amazoncart",JSON.stringify(cartitems))
+        },[cartitems]
+    )
     useEffect(
         ()=>{
         loadData();
@@ -25,7 +55,7 @@ function ProductContextProvider  ({children}) {
     }
 
   return (
-   <ProductContext.Provider value={{products}}>
+   <ProductContext.Provider value={{products,cartitems,addToCart,removeFromCart}}>
     {children}
    </ProductContext.Provider>
   )

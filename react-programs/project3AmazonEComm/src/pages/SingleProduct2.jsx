@@ -10,13 +10,13 @@ import ProductContext from '../contexts/ProductContext'
 const SingleProduct2 = () => {
     const { prodid } = useParams()
 
-    const data = useContext(ProductContext)
+    const {products} = useContext(ProductContext)
 
     const [product, setProduct] = useState(null)
 
     useEffect(() => {
 
-        const singleProduct = data.products.find(
+        const singleProduct = products.find(
             (prod) => prod.id === Number(prodid)
         )
 
