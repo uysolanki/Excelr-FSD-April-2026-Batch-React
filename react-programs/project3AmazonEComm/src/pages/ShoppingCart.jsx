@@ -1,12 +1,18 @@
 import React, { useContext } from 'react'
 import './ShoppingCart.css'
 import ProductContext from '../contexts/ProductContext'
+import { useNavigate } from 'react-router-dom'
 
 
 const ShoppingCart = () => {
-   
+    const navigate= useNavigate()
     const { products, cartitems,removeFromCart,addToCart } = useContext(ProductContext)
-    
+   
+
+    function proceedToCheckout()
+    {
+        navigate("/checkout")
+    }
     return (
         <>
             <table>
@@ -53,6 +59,7 @@ const ShoppingCart = () => {
                         )}
                 </tbody>
             </table>
+            <button onClick={proceedToCheckout}>Proceed to Checkout</button>
         </>
     )
 }
