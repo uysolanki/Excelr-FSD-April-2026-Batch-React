@@ -31,6 +31,12 @@ function ProductContextProvider  ({children}) {
         )
     }
 
+    function emptyTheCart()
+    {
+        setCartitems({})
+        localStorage.removeItem("amazoncart")
+    }
+
     function totalCartItems()
     {
         let sum=0
@@ -68,7 +74,7 @@ function ProductContextProvider  ({children}) {
     }
 
   return (
-   <ProductContext.Provider value={{products,cartitems,addToCart,removeFromCart,totalCartItems}}>
+   <ProductContext.Provider value={{products,cartitems,addToCart,removeFromCart,totalCartItems,emptyTheCart}}>
     {children}
    </ProductContext.Provider>
   )
