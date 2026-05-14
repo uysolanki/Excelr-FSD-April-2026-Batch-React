@@ -8,6 +8,7 @@ const CheckOut2 = () => {
     const [promocode, setPromocode] = useState()
     const [isPromoApplied, setIsPromoApplied] = useState(false)
     const [discount, setDiscount] = useState(0)
+    const [address, setAddress] = useState("")
     function calculateTotal() {
         return products.reduce(
             (total, prod) => {
@@ -21,8 +22,12 @@ const CheckOut2 = () => {
     //let shippingFee = carttotal * 0.05
     const [shippingFee, setShippingFee] = useState(carttotal * 0.05)
     let totalPayable = carttotal + shippingFee
-    function proceedToPayment() {
+    function proceedToPayment() 
+    {
+        if(address)
         navigate("/payment")
+        else
+        alert('Please enter shipping address')
     }
 
     function handlePromoOnChange(event) {
@@ -40,6 +45,11 @@ const CheckOut2 = () => {
         else {
             alert(`${promocode} is Invalid code`)
         }
+    }
+
+    function populateAddress(event)
+    {
+        setAddress(event.target.value)
     }
     return (
         <>
@@ -108,6 +118,17 @@ const CheckOut2 = () => {
                         />
                         <button onClick={applyPromoCode}>Apply</button>
                         <button onClick={()=>setIsPromoApplied(false)}>Remove</button>
+                    </div>
+
+                    <div>
+                        <h2>Shipping Address</h2>
+                        <textarea
+                            name="address"
+                            value={address}
+                            onChange={populateAddress}
+                            placeholder='Enter Shipping Address'
+                            rows="5"
+                        />
                     </div>
 
                     <button onClick={proceedToPayment} className="btn btn-primary w-100 mt-3">
