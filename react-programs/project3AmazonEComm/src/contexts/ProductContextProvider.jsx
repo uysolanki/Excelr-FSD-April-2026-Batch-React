@@ -7,6 +7,8 @@ function ProductContextProvider  ({children}) {
     const[products,setProducts]=useState()
     const[cartitems,setCartitems]=useState(getDefaultCartItems())
 
+    const [billingDetails,setBillingDetails]=useState({})
+    const [paymentMode,setPaymentMode]=useState("")
 
     function getDefaultCartItems()
     {
@@ -77,7 +79,7 @@ function ProductContextProvider  ({children}) {
 
 
   return (
-   <ProductContext.Provider value={{products,cartitems,addToCart,removeFromCart,totalCartItems,emptyTheCart}}>
+   <ProductContext.Provider value={{products,cartitems,addToCart,removeFromCart,totalCartItems,emptyTheCart,billingDetails,setBillingDetails,paymentMode,setPaymentMode}}>
     {children}
    </ProductContext.Provider>
   )
