@@ -71,7 +71,10 @@ function ProductContextProvider  ({children}) {
         catch (error) {
             console.log(error)
         }
+
     }
+
+
 
   return (
    <ProductContext.Provider value={{products,cartitems,addToCart,removeFromCart,totalCartItems,emptyTheCart}}>
