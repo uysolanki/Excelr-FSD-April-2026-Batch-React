@@ -65,8 +65,8 @@ function ProductContextProvider  ({children}) {
 
     async function loadData() {
         try {
-            const apiproducts = await axios.get("https://fakestoreapi.com/products")
-            //const apiproducts = await axios.get("http://localhost:8087/products/getAllProducts")
+            //const apiproducts = await axios.get("https://fakestoreapi.com/products")
+            const apiproducts = await axios.get("http://localhost:8087/products/getAllProducts")
             console.log(apiproducts) //single object {header,status,ok, data}
             setProducts(apiproducts.data)
         }
