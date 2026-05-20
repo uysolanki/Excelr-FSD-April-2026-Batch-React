@@ -25,6 +25,7 @@ import MakePayment3 from './pages/MakePayment3'
 import CheckOut4 from './pages/CheckOut4'
 import AddProducts from './pages/AddProducts'
 import AddProducts1 from './pages/AddProducts1'
+import RegisterUser from './pages/RegisterUser'
 const App = () => {
   return (
   <Router>
@@ -39,6 +40,7 @@ const App = () => {
                 <Route path="/payment" element={<MakePayment3 />} />
                 <Route path="/proceed" element={<OrderConfirmation4 />} />
                 <Route path="/add" element={<AddProducts1 />} />
+                <Route path="/register" element={<RegisterUser />} />
           </Routes>
   </Router>
   )
